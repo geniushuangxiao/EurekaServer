@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: eureka-server　　#应用名
+server:
+  port: 1000          # 指定该Eureka实例的端口
+eureka:
+  server:
+    enable-self-preservation: false
+  instance:
+    hostname: discovery       # 指定该Eureka实例的主机名，服务消费者通过此名访问服务提供者
+  #每个Eureka Server同时也启动一个Eureka Client，
+  client:
+    registerWithEureka: false   #不将此Eureka Client注册到Eureka Server 
+    fetchRegistry: false #此Eureka Client不从Eureka Server获取注册实例
