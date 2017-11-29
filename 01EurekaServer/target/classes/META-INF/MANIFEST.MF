@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: 01EurekaServer
+Implementation-Version: 1.0.0-SNAPSHOT
+Built-By: HuangXiao
+Implementation-Vendor-Id: com.dyd
+Build-Jdk: 1.8.0_152
+Implementation-URL: http://projects.spring.io/spring-boot/spring-boot-
+ starter-parent/01eureka-server/
+Created-By: Maven Integration for Eclipse
+
