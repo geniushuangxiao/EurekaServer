@@ -11,8 +11,8 @@ spring:
       percentage: 1.0
   datasource:
     url: jdbc:mysql://localhost/dyd
-    username: cloud
-    password: cloud
+    username: root
+    password: dyd
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
