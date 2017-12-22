@@ -5,11 +5,12 @@ server:
   port: 1000
 eureka:
   server:
-    enable-self-preservation: false #关闭保护功能
+    enable-self-preservation: false
   instance:
     hostname: discovery
+    preferIpAddress: true
   client:
-    register-with-eureka: false #此client不注册到Eureka Server
-    fetch-registry: false #此client不从Eureka Server获取实例
+    register-with-eureka: false
+    fetch-registry: false
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

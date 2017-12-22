@@ -2,8 +2,7 @@ server:
   port: 3001
 spring:
   application:
-    name: service-provider
-###### zipkin配置 ####
+    name: hello-service-provider
   zipkin:
     base-url: http://localhost:9411
   sleuth:
@@ -20,7 +19,10 @@ spring:
       ddl-auto: create-drop #启动时，表存在则删除创建，不存在则创建。仅用于开发环境
 eureka:
   instance:
-    hostname: service-provider
+    hostname: hello-service-provider
+    preferIpAddress: true
   client:
+    healthcheck:
+      enabled: true
     serviceUrl:
       defaultZone: http://localhost:1000/eureka/
