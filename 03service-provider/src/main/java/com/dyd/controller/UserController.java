@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,23 +28,21 @@ public class UserController {
 
 	@ApiOperation("添加用户")
 	@PostMapping("/add")
-	public @ResponseBody String add(@RequestBody User user) {
-		userRepository.save(user);
-		return "Success";
+	public @ResponseBody ResponseEntity<User> add(@RequestBody User user) {
+		return ResponseEntity.ok(userRepository.save(user));
 	}
 
 	@ApiOperation("修改用户")
 	@PostMapping("modify")
-	private @ResponseBody String modify(@RequestBody User user) {
-		userRepository.save(user);
-		return "Success";
+	public @ResponseBody ResponseEntity<User> modify(@RequestBody User user) {
+		return ResponseEntity.ok(userRepository.save(user));
 	}
 
 	@ApiOperation("删除用户")
 	@DeleteMapping("/delete")
-	public @ResponseBody String delete(@RequestParam long id) {
+	public @ResponseBody ResponseEntity<Object> delete(@RequestParam long id) {
 		userRepository.delete(id);
-		return "Success";
+		return ResponseEntity.ok().build();
 	}
 
 	@ApiOperation("查询所有用户")
