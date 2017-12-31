@@ -3,6 +3,7 @@ package com.dyd.controller;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -33,6 +34,7 @@ public class UserController {
 
 	@ApiOperation("添加用户")
 	@PostMapping("/add")
+	@RequiresRoles("admin")
 	public @ResponseBody ResponseEntity<User> add(@RequestParam String username, @RequestParam String password,
 			@RequestParam String[] roles, @RequestParam(required = false) String email) {
 		for (String role : roles) {
