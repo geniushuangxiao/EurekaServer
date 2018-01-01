@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -89,6 +90,26 @@ public class User implements UserDetails, CredentialsContainer {
 		this.credentialsNonExpired = credentialsNonExpired;
 		this.accountNonLocked = accountNonLocked;
 		this.authorities = Collections.unmodifiableSet(sortAuthorities(authorities));
+	}
+
+	/**
+	 * <h2>创建User对象</h2> accountNonExpired，accountNonLocked， credentialsNonExpired，
+	 * enabled默认都为true
+	 * 
+	 * @param username
+	 *            用户名
+	 * @param password
+	 *            密码
+	 * @param roles
+	 *            权限ADMIN/USER
+	 * @return
+	 */
+	public static User build(String username, String password, String[] roles) {
+		Set<UserAuthority> authorities = new HashSet<UserAuthority>();
+		for (String role : roles) {
+			authorities.add(new UserAuthority(role));
+		}
+		return new User(username, password, authorities);
 	}
 
 	public void eraseCredentials() {
