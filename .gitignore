@@ -27,3 +27,5 @@ build/
 
 dependency-reduced-pom.xml
 README.html
+
+.mvn
