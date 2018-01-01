@@ -5,7 +5,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
 
 @Configuration
-@EnableGlobalMethodSecurity(securedEnabled = false) // 方法级别权限控制开关
+@EnableGlobalMethodSecurity(securedEnabled = true) // 方法级别权限控制开关
 public class ExtendedGlobalMethodSecurityConfiguration extends GlobalMethodSecurityConfiguration {
 
 }

@@ -20,7 +20,10 @@ public class UserAuthority implements GrantedAuthority {
 
 	@Override
 	public String getAuthority() {
-		return role;
+		if (role.startsWith("ROLE_")) { // 若数据库中添加了ROLE_前缀，可直接返回给权限校验
+			return role;
+		}
+		return String.format("ROLE_%s", role);// 数据库中没加ROLE_前缀，权限校验时，须要加前缀
 	}
 
 }
