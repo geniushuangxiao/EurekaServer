@@ -5,5 +5,5 @@
   1、01eureka-server【V1】         注册中心<br>
   2、02api-gateway-zuul【V1】      Zuul网关 + Spring Security用户认证、权限管理<br>
   3、03service-provider【V1】      微服务示例。简单的Spring Boot + JPA + Hibernate + MySQL为服务Demo<br>
-  4、04cmo-service【V1开发中】      CMO应用，致力于使用软件简化CMO工作。<br>
+  4、04cmo-service【V1开发中】      CMO应用，致力于使用软件简化CMO工作<br>
   5、...
