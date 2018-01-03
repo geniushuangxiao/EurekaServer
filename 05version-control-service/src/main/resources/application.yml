@@ -1,0 +1,28 @@
+server:
+  port: 3003
+spring:
+  application:
+    name: version-control-service
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 1.0
+  datasource:
+    url: jdbc:mysql://localhost/dyd
+    username: root
+    password: dyd
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop #启动时，表存在则删除创建，不存在则创建。仅用于开发环境
+eureka:
+  instance:
+    hostname: version-control-service
+    preferIpAddress: true
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:1000/eureka/
