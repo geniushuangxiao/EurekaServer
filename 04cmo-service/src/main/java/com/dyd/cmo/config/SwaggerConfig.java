@@ -1,4 +1,4 @@
-package com.dyd.config;
+package com.dyd.cmo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,10 +20,10 @@ public class SwaggerConfig {
 	@Bean
 	public Docket testApi() {
 		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).useDefaultResponseMessages(false).select()
-				.apis(RequestHandlerSelectors.basePackage("com.dyd.controller")).build();
+				.apis(RequestHandlerSelectors.basePackage("com.dyd.cmo.controller")).build();
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("服务提供者").contact(new Contact("", "", "")).build();
+		return new ApiInfoBuilder().title("cmo服务").contact(new Contact("", "", "")).build();
 	}
 }
