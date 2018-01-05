@@ -1,9 +1,13 @@
 package com.dyd.version.entity.bean;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
@@ -48,4 +52,15 @@ public class Product {
 	 * 产品子特性版本格式，供String.format使用
 	 */
 	private String featureVersionFormat;
+
+	/**
+	 * git服务器上的ssh地址
+	 */
+	private String sshAddress;
+	/**
+	 * 产品的git分支
+	 */
+	@OneToMany
+	@JoinColumn(name = "product_id")
+	private List<GitBranch> gitBranchs;
 }
